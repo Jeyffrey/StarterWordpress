@@ -24,7 +24,7 @@ gulp.task('sass', function(){
 
 /*  -   Concatenation JS files  -  */
 gulp.task('uglify', function() {
-    return gulp.src('./assets/js/main.js')
+    return gulp.src('./assets/main.js')
         .pipe(uglify())
         .pipe(gulp.dest('./assets/'));
 });
