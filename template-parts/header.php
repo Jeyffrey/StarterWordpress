@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+    <head>
+        <meta charset="<?php bloginfo('charset'); ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--
+            <meta name="author" content="Jeyffrey" />
+    	    <meta name="designer" content="Jeyffrey" />
+        -->
+
+        <link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/assets/img/favicon.png" />
+
+        <title><?php the_title(); ?> - Jeyffrey</title>
+        <meta property="og:title" content="<?php the_title(); ?> - Jeyffrey" />
+
+        <meta name="description" content="" />
+        <meta property="og:description" content="" />
+
+        <?php wp_head(); ?>
+        <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/assets/main.css" charset="utf-8">
+    </head>
+
+    <body <?php body_class(); ?>>
+        <header id="header">
+            <?php if( is_front_page() ) : ?>
+                <h1 id="header--logo">
+                    <a href="<?= home_url(); ?>" title="Retour à l'accueil">
+                        <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="Bodreau Architecture" />
+                    </a>
+                </h1>
+            <?php else : ?>
+                <p id="header--logo">
+                    <a href="<?= home_url(); ?>" title="Retour à l'accueil">
+                        <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="Bodreau Architecture" />
+                    </a>
+                </p>
+            <?php endif; ?>
+
+            <?php get_template_part('template-parts/menu'); ?>
+        </header>
+
+        <div id="menu--hamburger">
+            <span></span>
+        </div>
+
+        <main id="main">
