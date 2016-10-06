@@ -1,1 +1,1 @@
-Penser à <pre>npm install</pre>
+<pre>npm install</pre>
