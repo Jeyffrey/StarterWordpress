@@ -1,14 +1,5 @@
 <?php
 /*
----- If single not needed -- */
-function remove_menus($disable_posts){
-        remove_menu_page( 'edit.php' );
-        remove_menu_page( 'edit-comments.php' );
-}
-// add_action( 'admin_menu', 'remove_menus' );
-
-
-/*
 ---- Custom post types -- */
 add_action( 'init', 'custom_post_types' );
 add_filter( 'nav_menu_css_class', 'active_menu_custom_posttype', 10, 2 );

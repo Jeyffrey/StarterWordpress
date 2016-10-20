@@ -1,4 +1,8 @@
 <?php
+/* Some links : http://www.hongkiat.com/blog/useful-wordpress-functions/
+                https://github.com/taniarascia/wp-functions
+*/
+
 /*
 ---- Fonctions : get a slug from a string -- */
 function slugify($sting) {
