@@ -26,13 +26,13 @@
             <?php if( is_front_page() ) : ?>
                 <h1 id="header--logo">
                     <a href="<?= home_url(); ?>" title="Retour à l'accueil">
-                        <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="Bodreau Architecture" />
+                        <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="" />
                     </a>
                 </h1>
             <?php else : ?>
                 <p id="header--logo">
                     <a href="<?= home_url(); ?>" title="Retour à l'accueil">
-                        <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="Bodreau Architecture" />
+                        <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="" />
                     </a>
                 </p>
             <?php endif; ?>
