@@ -1,6 +1,6 @@
 <?php get_template_part('template-parts/header'); ?>
 
-<h1>Default Cat</h1>
+<h1><?= single_cat_title(); ?></h1>
 
 <section id="liste-articles">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

@@ -11,8 +11,10 @@ function mesClasses() {
     $pageTemplateName   = str_replace('.php', '', basename(get_page_template()) );
     $pageTemplateString = get_page_template() ? str_replace('page.tpl.', '', $pageTemplateName) : 'default';
 
-    if( is_page() ) :
+    if ( is_page() ) :
         $classes[] = "{$postType} page-{$postSlug} template-{$pageTemplateString}";
+    elseif ( is_404() ) :
+        $classes[] = "page-404";
     elseif ( is_home() || is_archive() ) :
         $classes[] = "archive {$category} cat-{$category}";
     elseif ( is_singular() && $postType != 'page' && $postType != 'post' ) :
