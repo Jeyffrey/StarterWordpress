@@ -4,15 +4,10 @@
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--
-            <meta name="author" content="Jeyffrey" />
-    	    <meta name="designer" content="Jeyffrey" />
-        -->
-
         <link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/assets/img/favicon.png" />
 
-        <title><?php the_title(); ?> - Jeyffrey</title>
-        <meta property="og:title" content="<?php the_title(); ?> - Jeyffrey" />
+        <title><?php the_title(); ?> - <?php bloginfo('name'); ?></title>
+        <meta property="og:title" content="<?php the_title(); ?> - <?php bloginfo('name'); ?>" />
 
         <meta name="description" content="" />
         <meta property="og:description" content="" />
