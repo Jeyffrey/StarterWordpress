@@ -6,11 +6,7 @@
 
         <link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/assets/img/favicon.png" />
 
-        <title><?php the_title(); ?> - <?php bloginfo('name'); ?></title>
-        <meta property="og:title" content="<?php the_title(); ?> - <?php bloginfo('name'); ?>" />
-
-        <meta name="description" content="" />
-        <meta property="og:description" content="" />
+        <?php include(locate_template('template-parts/metas.php')); ?>
 
         <?php wp_head(); ?>
         <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/assets/main.css" charset="utf-8">
