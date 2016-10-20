@@ -18,9 +18,9 @@ function mesClasses() {
     elseif ( is_home() || is_archive() ) :
         $classes[] = "archive {$category} cat-{$category}";
     elseif ( is_singular() && $postType != 'page' && $postType != 'post' ) :
-        $classes[] = "{$postType} type-{$postType} post-{$postSlug}";
+        $classes[] = "single {$postType} cat-{$postType} post-{$postSlug}";
     elseif ( is_single() ) :
-        $classes[] = "{$postType} cat-{$category} post-{$postSlug}";
+        $classes[] = "single {$postType} cat-{$category} post-{$postSlug}";
     endif;
 
     return $classes;
