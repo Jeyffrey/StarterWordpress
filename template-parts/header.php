@@ -6,7 +6,7 @@
 
         <link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/assets/img/favicon.png" />
 
-        <?php include(locate_template('template-parts/metas.php')); ?>
+        <?php get_template_part('template-parts/metas'); ?>
 
         <?php wp_head(); ?>
         <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/assets/main.css" charset="utf-8">
