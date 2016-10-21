@@ -19,7 +19,7 @@ else if ( is_single() ) {
 
 /*
 ---- Category -- */
-else if ( is_archive() ) {
+else if ( is_archive() || is_home() ) {
     if( $type === 'post' )
         get_template_part('page-templates/cat.default');
     else
