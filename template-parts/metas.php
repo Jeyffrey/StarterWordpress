@@ -4,15 +4,16 @@
 global $post;
 setup_postdata($post);
 
+// Suffix title
+$suffixTitle = ' | ' . get_bloginfo('name');
+
 // Default og-image
 $defaultImage = get_template_directory_uri().'/assets/img/default-og-image.png';
 
 // Specific Excerpt for description
-$excerpt = substr( str_replace(' [&hellip;]', '', get_the_excerpt($post->ID)), 0, 250);
-$excerpt = substr($excerpt, 0, strrpos($excerpt, '.'));
+$defaultDescription = substr( str_replace(' [&hellip;]', '', get_the_excerpt($post->ID)), 0, 250);
+$defaultDescription = substr($defaultDescription, 0, strrpos($defaultDescription, '.'));
 
-// Suffix title
-$suffix = ' | ' . get_bloginfo('name');
 
 // ACF used ?
 function get_acf_metas($meta) {
@@ -30,8 +31,8 @@ if ( is_front_page() ) {
 
 // Page or Single post
 else if ( is_page() || is_single() ) {
-    $title       = get_acf_metas('title') ? (get_field('title') . $suffix) : (get_the_title() . $suffix);
-    $description = get_acf_metas('description') ? get_field('description') : $excerpt;
+    $title       = get_acf_metas('title') ? (get_field('title') . $suffixTitle) : (get_the_title() . $suffixTitle);
+    $description = get_acf_metas('description') ? get_field('description') : $defaultDescription;
 
     if (get_acf_metas('image')) {
         $image = get_field('image')['sizes']['large'];
@@ -47,9 +48,9 @@ else if ( is_page() || is_single() ) {
 // Category
 else if ( is_archive() && !is_home() ) {
     if (get_post_type() != 'post') {
-        $title = post_type_archive_title('', false) . $suffix;
+        $title = post_type_archive_title('', false) . $suffixTitle;
     } else {
-        $title = single_cat_title('', false) . $suffix;
+        $title = single_cat_title('', false) . $suffixTitle;
     }
 
     $description = get_acf_metas('description') ? get_field('description') : '';
@@ -58,7 +59,7 @@ else if ( is_archive() && !is_home() ) {
 
 // 404
 else if ( is_404() ) {
-    $title       = '404 Page - Error' . $suffix;
+    $title       = '404 Page - Error' . $suffixTitle;
     $description = '';
     $image       = $defaultImage;
 }
