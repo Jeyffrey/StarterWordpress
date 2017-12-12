@@ -5,11 +5,11 @@ add_filter('show_admin_bar', '__return_false');
 
 /*
 ---- Init : modules -- */
+// add_theme_support('title-tag');
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
 add_theme_support('widgets');
 add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
-add_theme_support('post-formats', array('video'));
 
 /*
 ---- Init : Remove shit -- */
@@ -27,6 +27,14 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
+
+
+/*
+---- Post excerpt length -- */
+// function wpdocs_custom_excerpt_length( $length ) {
+//     return 30;
+// }
+// add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 
 /*
@@ -52,3 +60,36 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 //     remove_menu_page( 'edit.php' );
 // }
 // add_action( 'admin_menu', 'noDefaultSingles' );
+
+
+/*
+---- ACF option page -- */
+// if( function_exists('acf_add_options_page') ) {
+	
+// 	acf_add_options_page(array(
+// 		'page_title' 	=> 'Thème',
+// 		'menu_title'	=> 'Thème',
+// 		'menu_slug' 	=> 'theme-general-settings',
+// 		'capability'	=> 'edit_posts',
+// 		'redirect'		=> false
+// 	));
+	
+// 	acf_add_options_sub_page(array(
+// 		'page_title' 	=> 'Pied de page',
+// 		'menu_title'	=> 'Pied de page',
+// 		'parent_slug'	=> 'theme-general-settings',
+// 	));
+// }
+
+
+/*
+---- Don't load Contact Form 7 CSS -- */
+// add_filter( 'wpcf7_load_css', '__return_false' );
+
+
+/*
+---- Plugin Yoast SEO : goes to the bottom of the page -- */
+// function yoasttobottom() {
+// 	return 'low';
+// }
+// add_filter( 'wpseo_metabox_prio', 'yoasttobottom');

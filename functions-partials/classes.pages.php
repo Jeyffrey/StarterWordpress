@@ -15,6 +15,8 @@ function mesClasses() {
         $classes[] = "{$postType} page-{$postSlug} template-{$pageTemplateString}";
     elseif ( is_404() ) :
         $classes[] = "page-404";
+    elseif ( is_search() ) :
+        $classes[] = "page-search";
     elseif ( is_home() || is_archive() ) :
         $classes[] = "archive {$category} cat-{$category}";
     elseif ( is_singular() && $postType != 'page' && $postType != 'post' ) :

@@ -5,7 +5,7 @@
                     wp_nav_menu( array(
                         'menu' => 'Pied de page',
                         'container' => false,
-                        'items_wrap' => '<ul class="footer--menu">%3$s</ul>'
+                        'items_wrap' => '<ul class="menu">%3$s</ul>'
                     ));
                 ?>
             </footer>

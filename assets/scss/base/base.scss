@@ -1,0 +1,15 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -ms-text-size-adjust: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	image-rendering: -webkit-optimize-contrast;
+}

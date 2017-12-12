@@ -1,13 +1,14 @@
-var gulp         = require('gulp'),
-    sass         = require('gulp-sass'),
-    plumber      = require('gulp-plumber'),
-    autoprefixer = require('gulp-autoprefixer'),
-    uglify       = require('gulp-uglify'),
-    browserSync  = require('browser-sync').create(),
-    reload       = browserSync.reload;
+const gulp         = require('gulp'),
+      sass         = require('gulp-sass'),
+      babel        = require('gulp-babel'),
+      uglify       = require('gulp-uglify'),
+      plumber      = require('gulp-plumber'),
+      autoprefixer = require('gulp-autoprefixer'),
+      browserSync  = require('browser-sync').create(),
+      reload       = browserSync.reload;
 
 /*  -   Compile Sass   -  */
-gulp.task('sass', function(){
+gulp.task('sass', () =>
     gulp.src('./assets/scss/*.scss')
         .pipe(plumber())
         .pipe(sass({
@@ -20,21 +21,27 @@ gulp.task('sass', function(){
         }))
         .pipe(gulp.dest('./assets/'))
         .pipe(browserSync.stream())
-});
+);
 
-/*  -   Concatenation JS files  -  */
-gulp.task('uglify', function() {
-    return gulp.src('./assets/main.js')
+/*  -   Compile JS  -  */
+gulp.task('javascript', () =>
+    gulp.src('./assets/js/main.js')
+        .pipe(babel({
+            presets: ['env']
+        }))
+        .pipe(plumber.stop())
         .pipe(uglify())
-        .pipe(gulp.dest('./assets/'));
-});
+        .pipe(gulp.dest('./assets/'))
+        .pipe(browserSync.stream())
+);
 
 /*  -   Watcher   -  */
-gulp.task('watch', ['sass'], function(){
-    browserSync.init({
+gulp.task('watch', ['sass', 'javascript'], () => {
+     browserSync.init({
         proxy: "http://perso.wordpress.local"
-    });
+    })
 
-    gulp.watch('./assets/scss/**/*.scss', ['sass']);
-    gulp.watch(['./**/*.php', './assets/*.js']).on('change', reload);
+    gulp.watch('./assets/scss/**/*.scss', ['sass'])
+    gulp.watch('./assets/js/**/*.js', ['javascript'])
+    gulp.watch(['./**/*.php']).on('change', reload)
 });

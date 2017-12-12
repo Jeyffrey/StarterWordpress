@@ -4,13 +4,8 @@
 global $post;
 setup_postdata($post);
 
-// Suffix title
 $suffixTitle = ' | ' . get_bloginfo('name');
-
-// Default og-image
 $defaultImage = get_template_directory_uri().'/assets/img/default-og-image.png';
-
-// Specific Excerpt for description
 $defaultDescription = substr( str_replace(' [&hellip;]', '', get_the_excerpt($post->ID)), 0, 250);
 $defaultDescription = substr($defaultDescription, 0, strrpos($defaultDescription, '.'));
 
@@ -19,6 +14,7 @@ $defaultDescription = substr($defaultDescription, 0, strrpos($defaultDescription
 function get_acf_metas($meta) {
     return (function_exists('get_field') && get_field($meta));
 }
+
 
 /*
 ---- DEFINE -- */

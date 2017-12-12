@@ -9,29 +9,38 @@
         <?php get_template_part('template-parts/metas'); ?>
 
         <?php wp_head(); ?>
+        
         <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/assets/main.css" charset="utf-8">
     </head>
 
     <body <?php body_class(); ?>>
         <header id="header">
             <?php if( is_front_page() ) : ?>
-                <h1 id="header--logo">
+                <h1 id="logo">
                     <a href="<?= home_url(); ?>" title="Retour à l'accueil">
                         <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="" />
                     </a>
                 </h1>
             <?php else : ?>
-                <p id="header--logo">
+                <p id="logo">
                     <a href="<?= home_url(); ?>" title="Retour à l'accueil">
                         <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="" />
                     </a>
                 </p>
             <?php endif; ?>
 
-            <?php get_template_part('template-parts/menu'); ?>
+            <nav id="menu" role="navigation">
+                <?php
+                    wp_nav_menu( array(
+                        'menu' => 'Menu principal',
+                        'container' => false,
+                        'items_wrap' => '<ul class="lvl1">%3$s</ul>'
+                    ));
+                ?>
+            </nav>
         </header>
 
-        <div id="menu--hamburger">
+        <div id="hamburger">
             <span></span>
         </div>
 
