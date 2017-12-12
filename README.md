@@ -16,7 +16,7 @@ Tools used :
 Wordpress parameters are defined in the 'function-partials' folder.
 Some parameters are currently in comments but already prepared :
 
-**init.wp.php**
+### init.wp.php
 - Hide admin bar
 - Init wordpress modules
 - Remove Wordpress useless tools
@@ -27,28 +27,28 @@ Some parameters are currently in comments but already prepared :
 - Disable Contact Form 7 style (commented)
 - Yoast SEO move at the bottom of your page (commented)
 
-**init.enqueue.php**
+### init.enqueue.php
 - Deregister jQuery
 - Deregister "wp-embed"
 - Register our JS file
 - Use "admin-ajax" (commented)
 
-**init.medias.php**
+### init.medias.php
 - Image default parameters
 - Specific image sizes
 - Change Wordpress uploads destination (commented)
 
-**classes.pages.php**
+### classes.pages.php
 - Custom body classes for every content type
 
-**custom.post-types.php**
+### custom.post-types.php
 - Create new Custom Post Type (commented)
 - Parent menu link goes active in new Custom Post Type (commented)
 
-**backoffice.login.php**
+### backoffice.login.php
 - Add a specific logo on the admin-login screen
 
-**backoffice.dashboard.php**
+### backoffice.dashboard.php
 - Remove initial wordpress widgets on the dashboard
 - Add a page list widget
 - Add a custom post type list widget
