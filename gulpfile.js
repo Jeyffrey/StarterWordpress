@@ -32,7 +32,7 @@ gulp.task('uglify', function() {
 /*  -   Watcher   -  */
 gulp.task('watch', ['sass'], function(){
     browserSync.init({
-        proxy: "http://perso.wordpress.dev"
+        proxy: "http://perso.wordpress.local"
     });
 
     gulp.watch('./assets/scss/**/*.scss', ['sass']);
