@@ -5,7 +5,6 @@ add_filter('show_admin_bar', '__return_false');
 
 /*
 ---- Init : modules -- */
-// add_theme_support('title-tag');
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
 add_theme_support('widgets');
@@ -88,7 +87,11 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 
 
 /*
----- Plugin Yoast SEO : goes to the bottom of the page -- */
+---- Plugin Yoast SEO -- */
+/***  Remove template-parts/meta.php if you use Yoast !  ***/
+
+// add_theme_support('title-tag');
+
 // function yoasttobottom() {
 // 	return 'low';
 // }
