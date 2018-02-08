@@ -1,7 +1,12 @@
 <?php
 /*
----- Filter : Remove Admin bar on front -- */
-add_filter('show_admin_bar', '__return_false');
+---- Filter : If Admin user, remove Admin bar on front -- */
+add_filter('show_admin_bar', function (){
+    if ( current_user_can('administrator') )
+        return false;
+    else
+        return true;
+});
 
 /*
 ---- Init : modules -- */
